@@ -18,7 +18,8 @@ class Pokemon {
 }
 
 class Pokedex {
-    constructor(){
+    constructor(names){
+        this.names = names;
     }
 
     // returns an array of all Pokemon
@@ -31,3 +32,6 @@ class Pokedex {
         return pokemon;
     }
 }
+
+let myPokedex = new Pokedex(pokemonNames);
+
