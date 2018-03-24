@@ -16,23 +16,15 @@ $(document).ready(function() {
         }
 
         render(){
-            /*
             let characterDiv = document.createElement("div");
-            $(characterDiv).appendChild("<h2>" + this.name + "</h2>");
-            $(characterDiv).appendChild("<p>types:" + this.types + "</p>");
-            $(characterDiv).appendChild("<p>height:" + this.height + "</p>");
-            $(characterDiv).appendChild("<p>weight:" + this.weight + "</p>");
-            $(characterDiv).appendChild("<p>imgUrl:" + this.imgUrl + "</p>");
-            $(characterDiv).appendChild("<p>stats:" + this.stats + "</p>");
-            $("#container").appendChild(characterDiv);*/
-
-            console.log(this.name);
-            console.log(this.types);
-            console.log(this.height);
-            console.log(this.weight);
-            console.log(this.imgUrl);
-            console.log(this.stats);
-            console.log(this.abilities);
+            $(characterDiv).append("<h2>" + this.name + "</h2>");
+            $(characterDiv).append("<p>types: " + this.types + "</p>");
+            $(characterDiv).append("<p>height: " + this.height + "</p>");
+            $(characterDiv).append("<p>weight: " + this.weight + "</p>");
+            $(characterDiv).append("<img src='" + this.imgUrl + "' alt='picture of "+ this.name +"' >");
+            $(characterDiv).append("<p>stats: " + this.stats + "</p>");
+            $(characterDiv).append("<p>abilities: " + this.abilities + "</p>");
+            $("#container").append(characterDiv);
         }
     }
 
@@ -81,6 +73,7 @@ $(document).ready(function() {
                     }
                     newPokemon = new Pokemon(pokemonName, typesList, height, weight, imgUrl, statsList, abilitiesList); 
                     self.pokeDirectory[pokemonName] = newPokemon;
+                    self.pokeDirectory[pokemonName].render();
                 });
 
             }
@@ -102,11 +95,7 @@ $(document).ready(function() {
         for (let i = 0; i < pokemonNames.length; i++){
             Sasha.add(pokemonNames[i]);
         }
-        showPokemon(pokemonNames[2]);    
     }
-   function showPokemon(pokemon) {
-        pokemon.render();
-   }
     main();
 
 });
