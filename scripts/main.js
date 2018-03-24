@@ -8,8 +8,8 @@ $(document).ready(function() {
         constructor(name, types, height, weight, imgUrl, stats, abilities) {
             this.name = name;
             this.types = types;
-            this.height = height;
-            this.weight = weight;
+            this.height = height/10;
+            this.weight = weight/10;
             this.imgUrl = imgUrl;
             this.stats = stats;
             this.abilities = abilities;
@@ -17,13 +17,25 @@ $(document).ready(function() {
 
         render(){
             let characterDiv = document.createElement("div");
-            $(characterDiv).append("<h2>" + this.name + "</h2>");
-            $(characterDiv).append("<p>types: " + this.types + "</p>");
-            $(characterDiv).append("<p>height: " + this.height + "</p>");
-            $(characterDiv).append("<p>weight: " + this.weight + "</p>");
-            $(characterDiv).append("<img src='" + this.imgUrl + "' alt='picture of "+ this.name +"' >");
-            $(characterDiv).append("<p>stats: " + this.stats + "</p>");
-            $(characterDiv).append("<p>abilities: " + this.abilities + "</p>");
+            $(characterDiv).attr("id", this.name);
+            $(characterDiv).attr("class", "pokemonCard");
+            let imgDiv = document.createElement("div");
+            $(imgDiv).attr("class", "pokemonImg");
+            $(imgDiv).append("<img src='" + this.imgUrl + "' alt='picture of "+ this.name +"' >");
+            $(characterDiv).append(imgDiv);
+            let statsDiv = document.createElement("div");
+            $(statsDiv).attr("class", "pokemonStats");
+            $(statsDiv).append("<h2>" + this.name + "</h2>");
+            let statsBox = document.createElement("p");
+            $(statsDiv).append(statsBox);
+            $(characterDiv).append(statsDiv);
+            let statsUL = document.createElement("ul");
+            $(statsBox).append(statsUL);
+            $(statsUL).append("<li>types: " + this.types + "</li>");
+            $(statsUL).append("<li>height: " + this.height + "m</li>");
+            $(statsUL).append("<li>weight: " + this.weight + "kg</li>");
+            $(statsUL).append("<li>stats: " + this.stats + "</li>");
+            $(statsUL).append("<li>abilities: " + this.abilities + "</li>");
             $("#container").append(characterDiv);
         }
     }
