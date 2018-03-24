@@ -1,0 +1,30 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+#container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #087CA7;
+}
+
+.pokemonCard {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.pokemonImg, .pokemonStats {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+p {
+    background-color: #05B2DC;
+}
+
+
