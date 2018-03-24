@@ -3,6 +3,7 @@ $(document).ready(function() {
     const pokeApi = "https://pokeapi.co/api/v2/pokemon/";
 
     const pokemonNames = ["rockruff", "lillipup", "stufful"];
+    var Sasha;
 
     class Pokemon {
         constructor(name, types, height, weight, imgUrl, stats, abilities) {
@@ -16,15 +17,23 @@ $(document).ready(function() {
         }
 
         render(){
+            /*
             let characterDiv = document.createElement("div");
-            $(characterDiv).appen
-            dChild("<h2>" + this.name + "</h2>");
+            $(characterDiv).appendChild("<h2>" + this.name + "</h2>");
             $(characterDiv).appendChild("<p>types:" + this.types + "</p>");
             $(characterDiv).appendChild("<p>height:" + this.height + "</p>");
             $(characterDiv).appendChild("<p>weight:" + this.weight + "</p>");
             $(characterDiv).appendChild("<p>imgUrl:" + this.imgUrl + "</p>");
             $(characterDiv).appendChild("<p>stats:" + this.stats + "</p>");
-            $("#container").appendChild(characterDiv);
+            $("#container").appendChild(characterDiv);*/
+
+            console.log(this.name);
+            console.log(this.types);
+            console.log(this.height);
+            console.log(this.weight);
+            console.log(this.imgUrl);
+            console.log(this.stats);
+            console.log(this.abilities);
         }
     }
 
@@ -35,37 +44,45 @@ $(document).ready(function() {
         }
 
         add(name) {
-            var t = this;
+            let t = this;
             if(!this.pokeDirectory.hasOwnProperty(name)) {
+            console.log("going to add Pokemon: " + name);
                 let apiUrl = pokeApi + name + '/';
-                $.ajax({
-                    type: 'GET',
-                    dataType: 'json',
-                    url: apiUrl,
-                    success: function(data) {
-                        
-                        let height = data.height;
-                        let weight = data.weight;
-                        let imgUrl = data.sprites.front_default;
-                        let statsList = {};
-                        let abilitiesList = []; 
-                        let typesList = [];
+                let getData = (function(){
+                    return $.ajax({
+                        type: 'GET',
+                        dataType: 'json',
+                        url: apiUrl,
+                        success: function(data) {
+                            console.log("current info on Pokemon: " + name, data);
+                            let height = data.height;
+                            let weight = data.weight;
+                            let imgUrl = data.sprites.front_default;
+                            let statsList = {};
+                            let abilitiesList = []; 
+                            let typesList = []; 
 
-                        for (let i = 0; i < data.stats.length; i++) {
-                            statsList[data.stats[i].stat.name] = data.stats[i].base_stat;
-                        }
-                        for (let j = 0; j < data.abilities.length; j++) {
-                            abilitiesList.push(data.abilities[j].ability.name);
-                        }
+                            for (let i = 0; i < data.stats.length; i++) {
+                                statsList[data.stats[i].stat.name] = data.stats[i].base_stat;
+                            }
+                            for (let j = 0; j < data.abilities.length; j++) {
+                                abilitiesList.push(data.abilities[j].ability.name);
+                            }
 
-                        for (let k = 0; k < data.types.length; k++) {
-                            typesList.push(data.types[k].type.name);
+                            for (let k = 0; k < data.types.length; k++) {
+                                typesList.push(data.types[k].type.name);
+                            }
+                            return new Pokemon(name, typesList, height, weight, imgUrl, statsList, abilitiesList) 
+                        },
+                        error: function(e) {
+                            console.log(e);
                         } 
-                    },
-                    error: function(e) {
-                        console.log(e);
-                    } 
-                }).done(t.pokeDirectory[name] = new Pokemon(name, typesList, height, weight, imgUrl, statsList, abilitiesList));
+                    });
+                });
+                getData();
+                // $.when(function (data){
+                //     t.pokeDirectory[name] = data;
+                // });
             }
         }
 
@@ -81,13 +98,14 @@ $(document).ready(function() {
     }
     
     function main(){
-        let myPokedex = new Pokedex();
+        Sasha = new Pokedex();
         for (let i = 0; i < pokemonNames.length; i++){
-            myPokedex.add(pokemonNames[i]);
+            console.log("current Pokemon is: " + pokemonNames[i]);
+            Sasha.add(pokemonNames[i]);
         }
 
-        console.log(myPokedex.get(pokemonNames[0]));
     }
     
     main();
+
 });
