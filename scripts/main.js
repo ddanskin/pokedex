@@ -42,14 +42,16 @@ $(document).ready(function() {
             $(statsUL).append("<li>stats: " + this.stats + "</li>");
             $(statsUL).append("<li>abilities: " + this.abilities + "</li>");
             $(newCol).append(cardDiv);
-            $(".container").append(newRow);
+            $(".main").prepend(newRow);
         }
     }
 
-    class Pokedex {
+    class Trainer {
 
-        constructor(){
+        constructor(trainerName){
+            this.trainerName = trainerName;
             this.pokeDirectory = {};
+            $(".brand-logo").text(trainerName);
         }
 
         add(name) {
@@ -109,7 +111,7 @@ $(document).ready(function() {
     }
     
     function main(){
-        Sasha = new Pokedex();
+        Sasha = new Trainer("Sasha");
         for (let i = 0; i < pokemonNames.length; i++){
             Sasha.add(pokemonNames[i]);
         }
