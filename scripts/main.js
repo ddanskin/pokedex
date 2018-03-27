@@ -16,14 +16,15 @@ $(document).ready(function() {
         }
 
         render(){
-            let newRow = document.createElement("div");
-            $(newRow).attr("class", "row");
-            let newCol = document.createElement("div");
-            $(newCol).attr("class", "col s12");
-            $(newRow).append(newCol);
+            let cardCarousel= document.createElement("div");
+            $(cardCarousel).attr("class", "carousel");
+            let newCardA = document.createElement("a");
+            $(newCardA).attr("class", "carousel-item");
+            $(newCardA).attr("href", "#");
+            $(cardCarousel).append(newCardA);
             let cardDiv = document.createElement("div");
             $(cardDiv).attr("id", this.name);
-            $(cardDiv).attr("class", "card pokemonCard");
+            $(cardDiv).attr("class", "card horizontal");
             let imgDiv = document.createElement("div");
             $(imgDiv).attr("class", "card-image pokemonImg");
             $(imgDiv).append("<img src='" + this.imgUrl + "' alt='picture of "+ this.name +"' >");
@@ -41,8 +42,12 @@ $(document).ready(function() {
             $(statsUL).append("<li>weight: " + this.weight + "kg</li>");
             /*$(statsUL).append("<li>stats: " + this.stats + "</li>");
             $(statsUL).append("<li>abilities: " + this.abilities + "</li>");*/
-            $(newCol).append(cardDiv);
-            $(".main").prepend(newRow);
+            let toggleButton = document.createElement("div");  
+            $(toggleButton).append("<a class='btn-floating halfway-fab waves-effect waves-light cyan lighten-1'><i class='material-icons'>+</i></a>");
+            $(statsBox).append(toggleButton);
+            $(newCardA).append(cardDiv);
+            $(".main").prepend(cardCarousel);
+            $('.carousel').carousel();
         }
     }
 

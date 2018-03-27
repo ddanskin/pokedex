@@ -12,18 +12,18 @@ body {
 
 .main {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+}
+
+.glass {
     background: url("../images/stripes.png");
-    opacity: 0.8;
+    opacity: 0.6;
+    top: inherit;
+    bottom: inherit;
+    left: inherit;
+    right: inherit;
+    position: absolute;
+    z-index: -1;
 }
-
-.pokemonCard {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-}
-
 .pokemonImg, .pokemonStats {
     display: flex;
     flex-direction: column;
