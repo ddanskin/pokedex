@@ -39,8 +39,8 @@ $(document).ready(function() {
             $(statsUL).append("<li>types: " + this.types + "</li>");
             $(statsUL).append("<li>height: " + this.height + "m</li>");
             $(statsUL).append("<li>weight: " + this.weight + "kg</li>");
-            $(statsUL).append("<li>stats: " + this.stats + "</li>");
-            $(statsUL).append("<li>abilities: " + this.abilities + "</li>");
+            /*$(statsUL).append("<li>stats: " + this.stats + "</li>");
+            $(statsUL).append("<li>abilities: " + this.abilities + "</li>");*/
             $(newCol).append(cardDiv);
             $(".main").prepend(newRow);
         }
@@ -51,7 +51,7 @@ $(document).ready(function() {
         constructor(trainerName){
             this.trainerName = trainerName;
             this.pokeDirectory = {};
-            $(".brand-logo").text(trainerName);
+            $(".brand-logo").text("Trainer: "+ trainerName);
         }
 
         add(name) {
