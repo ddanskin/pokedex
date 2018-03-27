@@ -16,19 +16,24 @@ $(document).ready(function() {
         }
 
         render(){
-            let characterDiv = document.createElement("div");
-            $(characterDiv).attr("id", this.name);
-            $(characterDiv).attr("class", "card pokemonCard");
+            let newRow = document.createElement("div");
+            $(newRow).attr("class", "row");
+            let newCol = document.createElement("div");
+            $(newCol).attr("class", "col s12");
+            $(newRow).append(newCol);
+            let cardDiv = document.createElement("div");
+            $(cardDiv).attr("id", this.name);
+            $(cardDiv).attr("class", "card pokemonCard");
             let imgDiv = document.createElement("div");
             $(imgDiv).attr("class", "card-image pokemonImg");
             $(imgDiv).append("<img src='" + this.imgUrl + "' alt='picture of "+ this.name +"' >");
-            $(characterDiv).append(imgDiv);
+            $(cardDiv).append(imgDiv);
             let statsDiv = document.createElement("div");
             $(statsDiv).attr("class", "card-content pokemonStats");
             $(statsDiv).append("<span class='card-title'>" + this.name + "</span>");
             let statsBox = document.createElement("p");
             $(statsDiv).append(statsBox);
-            $(characterDiv).append(statsDiv);
+            $(cardDiv).append(statsDiv);
             let statsUL = document.createElement("ul");
             $(statsBox).append(statsUL);
             $(statsUL).append("<li>types: " + this.types + "</li>");
@@ -36,7 +41,8 @@ $(document).ready(function() {
             $(statsUL).append("<li>weight: " + this.weight + "kg</li>");
             $(statsUL).append("<li>stats: " + this.stats + "</li>");
             $(statsUL).append("<li>abilities: " + this.abilities + "</li>");
-            $(".container").append(characterDiv);
+            $(newCol).append(cardDiv);
+            $(".container").append(newRow);
         }
     }
 
