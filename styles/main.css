@@ -19,7 +19,7 @@ body {
     z-index: 1;
     position: relative;
 }
-
+/*
 .glass {
     background: url("../images/stripes.png");
     opacity: 0.6;
@@ -29,8 +29,11 @@ body {
     right: inherit;
     position: absolute;
     z-index: -1;
-}
+}*/
 
+.carousel {
+    height: 500px;
+}
 .pokemonImg, .pokemonStats {
     display: flex;
     flex-direction: column;

@@ -4,6 +4,7 @@ $(document).ready(function() {
     const pokemonNames = ["rockruff", "lillipup", "stufful"];
     var Sasha;
 
+
     class Pokemon {
         constructor(name, types, height, weight, imgUrl, stats, abilities) {
             this.name = name;
@@ -16,12 +17,9 @@ $(document).ready(function() {
         }
 
         render(){
-            let cardCarousel= document.createElement("div");
-            $(cardCarousel).attr("class", "carousel");
-            let newCardA = document.createElement("a");
+            let newCardA = document.createElement("div");
             $(newCardA).attr("class", "carousel-item");
-            $(newCardA).attr("href", "#");
-            $(cardCarousel).append(newCardA);
+            $(".carousel").append(newCardA);
             let cardDiv = document.createElement("div");
             $(cardDiv).attr("id", this.name);
             $(cardDiv).attr("class", "card horizontal");
@@ -46,7 +44,6 @@ $(document).ready(function() {
             $(toggleButton).append("<a class='btn-floating halfway-fab waves-effect waves-light cyan lighten-1'><i class='material-icons'>+</i></a>");
             $(statsBox).append(toggleButton);
             $(newCardA).append(cardDiv);
-            $(".main").prepend(cardCarousel);
             $('.carousel').carousel();
         }
     }
@@ -100,7 +97,7 @@ $(document).ready(function() {
                     self.pokeDirectory[pokemonName] = newPokemon;
                     self.pokeDirectory[pokemonName].render();
                 });
-
+                
             }
         }
 
@@ -121,6 +118,9 @@ $(document).ready(function() {
             Sasha.add(pokemonNames[i]);
         }
     }
-    main();
+    $("#mainButton").click(function(){
+        $(".brand-logo").text("Loading..");
+        main();
+    });
 
 });
