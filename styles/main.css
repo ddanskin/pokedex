@@ -16,6 +16,7 @@ body {
 
 .main {
     display: flex;
+    justify-content: center;
     z-index: 1;
     position: relative;
 }
@@ -32,13 +33,20 @@ body {
 }*/
 
 .carousel {
-    height: 500px;
+    display: flex;
+    height: 100vh;
 }
+
 .pokemonImg, .pokemonStats {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.pokemonImg img {
+    min-height: 40vh;
+    min-width: 50vh;
 }
 
 .pokemonStats ul {
@@ -48,10 +56,11 @@ body {
     justify-content: center;
 }
 
-.card:hover {
-  -webkit-animation: neonGlow 1.5s ease-in-out infinite alternate;
-  -moz-animation: neonGlow 1.5s ease-in-out infinite alternate;
-  animation: neonGlow 1.5s ease-in-out infinite alternate;
+.card {
+    min-width: 65vh;
+    -webkit-animation: neonGlow 1.5s ease-in-out infinite alternate;
+    -moz-animation: neonGlow 1.5s ease-in-out infinite alternate;
+    animation: neonGlow 1.5s ease-in-out infinite alternate;
 }
 
 @-webkit-keyframes neonGlow {
