@@ -10,8 +10,14 @@ body {
     );
 }
 
+#pokedex {
+    box-shadow: 0 0 10px #333;
+}
+
 .main {
     display: flex;
+    z-index: 1;
+    position: relative;
 }
 
 .glass {
@@ -24,6 +30,7 @@ body {
     position: absolute;
     z-index: -1;
 }
+
 .pokemonImg, .pokemonStats {
     display: flex;
     flex-direction: column;
