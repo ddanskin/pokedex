@@ -17,33 +17,44 @@ $(document).ready(function() {
         }
 
         render(){
+            // create new carousel card
             let newCardA = document.createElement("div");
             $(newCardA).attr("class", "carousel-item");
             $(".carousel").append(newCardA);
             let cardDiv = document.createElement("div");
             $(cardDiv).attr("id", this.name);
             $(cardDiv).attr("class", "card horizontal");
+            // add image to card
             let imgDiv = document.createElement("div");
             $(imgDiv).attr("class", "card-image pokemonImg");
-            $(imgDiv).append("<img src='" + this.imgUrl + "' alt='picture of "+ this.name +"' >");
+            $(imgDiv).append("<img class='activator' src='" + this.imgUrl + "' alt='picture of "+ this.name +"' >");
             $(cardDiv).append(imgDiv);
+            // add character name and info to card
             let statsDiv = document.createElement("div");
             $(statsDiv).attr("class", "card-content pokemonStats");
-            $(statsDiv).append("<span class='card-title'>" + this.name + "</span>");
+            $(statsDiv).append("<span class='card-title activator'>" + this.name + "</span>");
             let statsBox = document.createElement("p");
             $(statsDiv).append(statsBox);
             $(cardDiv).append(statsDiv);
+            let detailsUl = document.createElement("ul");
+            $(statsBox).append(detailsUl);
+            $(detailsUl).append("<li>types: " + this.types + "</li>");
+            $(detailsUl).append("<li>height: " + this.height + "m</li>");
+            $(detailsUl).append("<li>weight: " + this.weight + "kg</li>");
+            // add hidden stats info card that will pop up on card click
+            let statsShow = document.createElement("div");
+            $(statsShow).attr("class", "card-reveal pokemonStats");
+            $(statsShow).append("<span class='card-title'>" + this.name + "<i class='material-icons right'>close</i></span>");
+            // add unordered list of character stats and abilities to pop up card
             let statsUL = document.createElement("ul");
-            $(statsBox).append(statsUL);
-            $(statsUL).append("<li>types: " + this.types + "</li>");
-            $(statsUL).append("<li>height: " + this.height + "m</li>");
-            $(statsUL).append("<li>weight: " + this.weight + "kg</li>");
-            /*$(statsUL).append("<li>stats: " + this.stats + "</li>");
-            $(statsUL).append("<li>abilities: " + this.abilities + "</li>");*/
-            let toggleButton = document.createElement("div");  
-            $(toggleButton).append("<a class='btn-floating halfway-fab waves-effect waves-light cyan lighten-1'><i class='material-icons'>+</i></a>");
-            $(statsBox).append(toggleButton);
+            $(statsShow).append(statsUL);
+            $.each(this.stats, function(key, value) {
+                $(statsUL).append("<li>" + key + ":" + value + "</li>");
+            });
+            $(statsShow).append("<p>abilities: " + this.abilities + "</p>");
+            $(cardDiv).append(statsShow);
             $(newCardA).append(cardDiv);
+            // start carousel
             $('.carousel').carousel();
         }
     }
@@ -118,9 +129,14 @@ $(document).ready(function() {
             Sasha.add(pokemonNames[i]);
         }
     }
+
     $("#mainButton").click(function(){
         $(".brand-logo").text("Loading..");
         main();
     });
+
+   // $('.fixed-action-btn').floatingActionButton(function(){
+   //     console.log("I've been clicked");
+   // });
 
 });
