@@ -35,7 +35,7 @@ $(document).ready(function() {
             
             // add character name and info to card
             let detailsDiv = document.createElement("div");
-            $(detailsDiv).attr("class", "card-content");
+            $(detailsDiv).attr("class", "card-content flow-text");
             $(detailsDiv).append("<span class='card-title activator'>" + this.name + "</span>");
             $(cardDiv).append(detailsDiv);
             let detailsUl = document.createElement("ul");
@@ -47,7 +47,7 @@ $(document).ready(function() {
             
             // add hidden stats info card that will pop up on card click
             let statsShow = document.createElement("div");
-            $(statsShow).attr("class", "card-reveal");
+            $(statsShow).attr("class", "card-reveal flow-text");
             $(statsShow).append("<span class='card-title'>" + this.name + "<i class='material-icons right'>x</i></span>");
             
             // add unordered list of character stats to pop up card

@@ -14,15 +14,16 @@ body {
     #pokedex {
         box-shadow: 0 0 10px #333;
         font-family: 'Roboto Mono', monospace;
-        overflow: hidden;
-        nav {}
+        nav {
+        }
         .main {
             height: 80%;
+            overflow: hidden;
             .carousel {
-                height: 60%;
-                overflow:visible;
+                height: 55%;
+                overflow: visible;
                 .carousel-item {
-                    width: 30%;
+                    min-width: 30%;
                     .card {
                         @include neonGlow;
                         .card-image {
@@ -30,14 +31,17 @@ body {
                             }
                         }
                         .card-content { 
+                            font-size: 1.1em;
                         }
                         .card-reveal {
+                            font-size: 1.3em;
                         }
                     }
                 }
             }
         }
-        footer {}
+        footer {
+        }
     }
 }
 

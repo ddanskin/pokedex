@@ -25,15 +25,15 @@ body {
   background: linear-gradient(to bottom, #087CA7 0%, #087CA7 30%, #1D9300 30%, #1D9300 100%); }
   body #pokedex {
     box-shadow: 0 0 10px #333;
-    font-family: 'Roboto Mono', monospace;
-    overflow: hidden; }
+    font-family: 'Roboto Mono', monospace; }
     body #pokedex .main {
-      height: 80%; }
+      height: 80%;
+      overflow: hidden; }
       body #pokedex .main .carousel {
-        height: 60%;
+        height: 55%;
         overflow: visible; }
         body #pokedex .main .carousel .carousel-item {
-          width: 30%; }
+          min-width: 30%; }
           body #pokedex .main .carousel .carousel-item .card {
             -webkit-animation-name: neonGlow;
             -moz-animation-name: neonGlow;
@@ -55,5 +55,9 @@ body {
             -moz-animation-direction: alternate;
             -o-animation-direction: alternate;
             animation-direction: alternate; }
+            body #pokedex .main .carousel .carousel-item .card .card-content {
+              font-size: 1.1em; }
+            body #pokedex .main .carousel .carousel-item .card .card-reveal {
+              font-size: 1.3em; }
 
 /*# sourceMappingURL=main.css.map */
