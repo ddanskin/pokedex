@@ -4,7 +4,6 @@ $(document).ready(function() {
     const pokemonNames = ["rockruff", "lillipup", "stufful"];
     var Sasha;
 
-
     class Pokemon {
         constructor(name, types, height, weight, imgUrl, stats, abilities) {
             this.name = name;
@@ -16,6 +15,7 @@ $(document).ready(function() {
             this.abilities = abilities;
         }
 
+        // creates display of character cards
         render(){
             // create new carousel card
             let newCardA = document.createElement("div");
@@ -24,11 +24,13 @@ $(document).ready(function() {
             let cardDiv = document.createElement("div");
             $(cardDiv).attr("id", this.name);
             $(cardDiv).attr("class", "card horizontal");
+            
             // add image to card
             let imgDiv = document.createElement("div");
             $(imgDiv).attr("class", "card-image pokemonImg");
             $(imgDiv).append("<img class='activator' src='" + this.imgUrl + "' alt='picture of "+ this.name +"' >");
             $(cardDiv).append(imgDiv);
+            
             // add character name and info to card
             let statsDiv = document.createElement("div");
             $(statsDiv).attr("class", "card-content pokemonStats");
@@ -41,19 +43,22 @@ $(document).ready(function() {
             $(detailsUl).append("<li>types: " + this.types + "</li>");
             $(detailsUl).append("<li>height: " + this.height + "m</li>");
             $(detailsUl).append("<li>weight: " + this.weight + "kg</li>");
+            
             // add hidden stats info card that will pop up on card click
             let statsShow = document.createElement("div");
             $(statsShow).attr("class", "card-reveal pokemonStats");
             $(statsShow).append("<span class='card-title'>" + this.name + "<i class='material-icons right'>close</i></span>");
+            
             // add unordered list of character stats and abilities to pop up card
             let statsUL = document.createElement("ul");
             $(statsShow).append(statsUL);
             $.each(this.stats, function(key, value) {
-                $(statsUL).append("<li>" + key + ":" + value + "</li>");
+                $(statsUL).append("<li>" + key + ": " + value + "</li>");
             });
             $(statsShow).append("<p>abilities: " + this.abilities + "</p>");
             $(cardDiv).append(statsShow);
             $(newCardA).append(cardDiv);
+            
             // start carousel
             $('.carousel').carousel();
         }
@@ -67,6 +72,7 @@ $(document).ready(function() {
             $(".brand-logo").text("Trainer: "+ trainerName);
         }
 
+        // add new Pokemon to pokeDirectory and display them on screen
         add(name) {
             let self = this;
             if(!this.pokeDirectory.hasOwnProperty(name)) {
@@ -85,6 +91,8 @@ $(document).ready(function() {
                         } 
                     });
                 });
+
+                // gets ajax data, then uses it to create new Pokemon
                 getData().then(function (data){
                     let pokemonName = data.name;
                     let height = data.height;
@@ -123,6 +131,7 @@ $(document).ready(function() {
         }
     }
     
+    // creates new pokedex initialized with trainer name Sasha and adds preset Pokemon 
     function main(){
         Sasha = new Trainer("Sasha");
         for (let i = 0; i < pokemonNames.length; i++){
@@ -130,13 +139,10 @@ $(document).ready(function() {
         }
     }
 
+    // when button is pressed, main function is called
     $("#mainButton").click(function(){
-        $(".brand-logo").text("Loading..");
         main();
+        $("#mainButton").removeClass("pulse");
     });
-
-   // $('.fixed-action-btn').floatingActionButton(function(){
-   //     console.log("I've been clicked");
-   // });
 
 });
