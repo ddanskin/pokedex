@@ -19,5 +19,5 @@ cards also feature a glowing animation
 Thanks to:
 www.pokeapi.co for providing the Pokemon data
 
-#License
+# License
 MIT copyright ddanskin
