@@ -1,3 +1,5 @@
+@import 'partials/animation';
+
 body {
     margin: 0;
     padding: 0;
@@ -10,67 +12,34 @@ body {
     );
     #pokedex {
         box-shadow: 0 0 10px #333;
+        nav {}
         .main {
             display: flex;
             justify-content: center;
-            z-index: 1;
-            position: relative;
             .carousel {
                 display: flex;
-                height: 100vh;
-                .card {
-                    min-width: 65vh;
-                    -webkit-animation: neonGlow 1.5s ease-in-out infinite alternate;
-                    -moz-animation: neonGlow 1.5s ease-in-out infinite alternate;
-                    animation: neonGlow 1.5s ease-in-out infinite alternate;
-                    .pokemonImg, .pokemonStats {
-                        display: flex;
-                        flex-direction: column;
-                        justify-content: center;
-                        align-items: center;
-                        .pokemonImg img {
-                            min-height: 40vh;
-                            min-width: 50vh;
+                height: 60vh;
+                .carousel-item {
+                    .card {
+                        -webkit-animation: neonGlow 1.5s ease-in-out infinite alternate;
+                        -moz-animation: neonGlow 1.5s ease-in-out infinite alternate;
+                        animation: neonGlow 1.5s ease-in-out infinite alternate;
+                        .card-image {
+                            .pokemonImg img {
+                            }
                         }
-                        
-                        .pokemonStats ul {
-                            list-style-type: none;
-                            display: flex;
-                            flex-direction: column;
-                            justify-content: center;
+                        .card-content { 
+                            .pokemonStats ul {
+                                list-style-type: none;
+                            }
+                        }
+                        .card-reveal {
                         }
                     }
                 }
             }
+            footer {}
         }
     }
 }
 
-
-
-@-webkit-keyframes neonGlow {
-  from {
-    box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #228DFF, 0 0 70px #228DFF, 0 0 80px #228DFF, 0 0 100px #228DFF, 0 0 150px #228DFF;
-  }
-  to {
-    box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #228DFF, 0 0 35px #228DFF, 0 0 40px #228DFF, 0 0 50px #228DFF, 0 0 75px #228DFF;
-  }
-}
-
-@-moz-keyframes neonGlow {
-  from {
-    box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #228DFF, 0 0 70px #228DFF, 0 0 80px #228DFF, 0 0 100px #228DFF, 0 0 150px #228DFF;
-  }
-  to {
-    box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #228DFF, 0 0 35px #228DFF, 0 0 40px #228DFF, 0 0 50px #228DFF, 0 0 75px #228DFF;
-  }
-}
-
-@keyframes neonGlow {
-  from {
-    box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #228DFF, 0 0 70px #228DFF, 0 0 80px #228DFF, 0 0 100px #228DFF, 0 0 150px #228DFF;
-  }
-  to {
-    box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #228DFF, 0 0 35px #228DFF, 0 0 40px #228DFF, 0 0 50px #228DFF, 0 0 75px #228DFF;
-  }
-}
