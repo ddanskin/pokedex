@@ -1,9 +1,15 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto+Mono");
 @-webkit-keyframes neonGlow {
   from {
     box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #228DFF, 0 0 70px #228DFF, 0 0 80px #228DFF, 0 0 100px #228DFF, 0 0 150px #228DFF; }
   to {
     box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #228DFF, 0 0 35px #228DFF, 0 0 40px #228DFF, 0 0 50px #228DFF, 0 0 75px #228DFF; } }
 @-moz-keyframes neonGlow {
+  from {
+    box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #228DFF, 0 0 70px #228DFF, 0 0 80px #228DFF, 0 0 100px #228DFF, 0 0 150px #228DFF; }
+  to {
+    box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #228DFF, 0 0 35px #228DFF, 0 0 40px #228DFF, 0 0 50px #228DFF, 0 0 75px #228DFF; } }
+@-o-keyframes neonGlow {
   from {
     box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #228DFF, 0 0 70px #228DFF, 0 0 80px #228DFF, 0 0 100px #228DFF, 0 0 150px #228DFF; }
   to {
@@ -18,18 +24,36 @@ body {
   padding: 0;
   background: linear-gradient(to bottom, #087CA7 0%, #087CA7 30%, #1D9300 30%, #1D9300 100%); }
   body #pokedex {
-    box-shadow: 0 0 10px #333; }
+    box-shadow: 0 0 10px #333;
+    font-family: 'Roboto Mono', monospace;
+    overflow: hidden; }
     body #pokedex .main {
-      display: flex;
-      justify-content: center; }
+      height: 80%; }
       body #pokedex .main .carousel {
-        display: flex;
-        height: 60vh; }
-        body #pokedex .main .carousel .carousel-item .card {
-          -webkit-animation: neonGlow 1.5s ease-in-out infinite alternate;
-          -moz-animation: neonGlow 1.5s ease-in-out infinite alternate;
-          animation: neonGlow 1.5s ease-in-out infinite alternate; }
-          body #pokedex .main .carousel .carousel-item .card .card-content .pokemonStats ul {
-            list-style-type: none; }
+        height: 60%;
+        overflow: visible; }
+        body #pokedex .main .carousel .carousel-item {
+          width: 30%; }
+          body #pokedex .main .carousel .carousel-item .card {
+            -webkit-animation-name: neonGlow;
+            -moz-animation-name: neonGlow;
+            -o-animation-name: neonGlow;
+            animation-name: neonGlow;
+            -webkit-animation-duration: 1.5s;
+            -moz-animation-duration: 1.5s;
+            -o-animation-duration: 1.5s;
+            animation-duration: 1.5s;
+            -webkit-animation-timing-function: ease-in-out;
+            -moz-animation-timing-function: ease-in-out;
+            -o-animation-timing-function: ease-in-out;
+            animation-timing-function: ease-in-out;
+            -webkit-animation-iteration-count: infinite;
+            -moz-animation-iteration-count: infinite;
+            -o-animation-iteration-count: infinite;
+            animation-iteration-count: infinite;
+            -webkit-animation-direction: alternate;
+            -moz-animation-direction: alternate;
+            -o-animation-direction: alternate;
+            animation-direction: alternate; }
 
 /*# sourceMappingURL=main.css.map */

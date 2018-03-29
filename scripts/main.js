@@ -1,9 +1,11 @@
 $(document).ready(function() { 
     const pokeApi = "https://pokeapi.co/api/v2/pokemon/";
-
+    //const pokeApi = "https://pokeapi.salestock.net/api/v2/pokemon/";
     const pokemonNames = ["rockruff", "lillipup", "stufful"];
+    let pokedexOn = false;
     var Sasha;
-
+    
+    // create new Pokemon object
     class Pokemon {
         constructor(name, types, height, weight, imgUrl, stats, abilities) {
             this.name = name;
@@ -23,39 +25,37 @@ $(document).ready(function() {
             $(".carousel").append(newCardA);
             let cardDiv = document.createElement("div");
             $(cardDiv).attr("id", this.name);
-            $(cardDiv).attr("class", "card horizontal");
+            $(cardDiv).attr("class", "card");
             
             // add image to card
             let imgDiv = document.createElement("div");
-            $(imgDiv).attr("class", "card-image pokemonImg");
-            $(imgDiv).append("<img class='activator' src='" + this.imgUrl + "' alt='picture of "+ this.name +"' >");
+            $(imgDiv).attr("class", "card-image large");
+            $(imgDiv).append("<img class='responsive-img activator' src='" + this.imgUrl + "' alt='picture of "+ this.name +"' >");
             $(cardDiv).append(imgDiv);
             
             // add character name and info to card
-            let statsDiv = document.createElement("div");
-            $(statsDiv).attr("class", "card-content pokemonStats");
-            $(statsDiv).append("<span class='card-title activator'>" + this.name + "</span>");
-            let statsBox = document.createElement("p");
-            $(statsDiv).append(statsBox);
-            $(cardDiv).append(statsDiv);
+            let detailsDiv = document.createElement("div");
+            $(detailsDiv).attr("class", "card-content");
+            $(detailsDiv).append("<span class='card-title activator'>" + this.name + "</span>");
+            $(cardDiv).append(detailsDiv);
             let detailsUl = document.createElement("ul");
-            $(statsBox).append(detailsUl);
+            $(detailsDiv).append(detailsUl);
             $(detailsUl).append("<li>types: " + this.types + "</li>");
             $(detailsUl).append("<li>height: " + this.height + "m</li>");
             $(detailsUl).append("<li>weight: " + this.weight + "kg</li>");
+            $(detailsDiv).append("<p>abilities: " + this.abilities + "</p>");
             
             // add hidden stats info card that will pop up on card click
             let statsShow = document.createElement("div");
-            $(statsShow).attr("class", "card-reveal pokemonStats");
-            $(statsShow).append("<span class='card-title'>" + this.name + "<i class='material-icons right'>close</i></span>");
+            $(statsShow).attr("class", "card-reveal");
+            $(statsShow).append("<span class='card-title'>" + this.name + "<i class='material-icons right'>x</i></span>");
             
-            // add unordered list of character stats and abilities to pop up card
+            // add unordered list of character stats to pop up card
             let statsUL = document.createElement("ul");
             $(statsShow).append(statsUL);
             $.each(this.stats, function(key, value) {
                 $(statsUL).append("<li>" + key + ": " + value + "</li>");
             });
-            $(statsShow).append("<p>abilities: " + this.abilities + "</p>");
             $(cardDiv).append(statsShow);
             $(newCardA).append(cardDiv);
             
@@ -64,6 +64,7 @@ $(document).ready(function() {
         }
     }
 
+    // create trainer object with name given and initialize with empty pokeDirectory
     class Trainer {
 
         constructor(trainerName){
@@ -141,8 +142,11 @@ $(document).ready(function() {
 
     // when button is pressed, main function is called
     $("#mainButton").click(function(){
-        main();
-        $("#mainButton").removeClass("pulse");
+        if (!pokedexOn) {
+            main();
+            $("#mainButton").removeClass("pulse");
+            pokedexOn = true;
+        }
     });
 
 });
