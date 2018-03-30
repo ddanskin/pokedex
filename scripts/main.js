@@ -25,11 +25,11 @@ $(document).ready(function() {
             $(".carousel").append(newCardA);
             let cardDiv = document.createElement("div");
             $(cardDiv).attr("id", this.name);
-            $(cardDiv).attr("class", "card");
+            $(cardDiv).attr("class", "card medium");
             
             // add image to card
             let imgDiv = document.createElement("div");
-            $(imgDiv).attr("class", "card-image large");
+            $(imgDiv).attr("class", "card-image");
             $(imgDiv).append("<img class='responsive-img activator' src='" + this.imgUrl + "' alt='picture of "+ this.name +"' >");
             $(cardDiv).append(imgDiv);
             
@@ -51,10 +51,10 @@ $(document).ready(function() {
             $(statsShow).append("<span class='card-title'>" + this.name + "<i class='material-icons right'>x</i></span>");
             
             // add unordered list of character stats to pop up card
-            let statsUL = document.createElement("ul");
+            let statsUL = document.createElement("table");
             $(statsShow).append(statsUL);
             $.each(this.stats, function(key, value) {
-                $(statsUL).append("<li>" + key + ": " + value + "</li>");
+                $(statsUL).append("<tr><td>" + key + "</td><td><meter min='0' max='100' low='25' high='75' optimum='50' value='" + value + "'></meter></td></tr>");
             });
             $(cardDiv).append(statsShow);
             $(newCardA).append(cardDiv);
@@ -77,6 +77,7 @@ $(document).ready(function() {
         add(name) {
             let self = this;
             if(!this.pokeDirectory.hasOwnProperty(name)) {
+                $("preloadSpinner").addClass("active");
                 let newPokemon;
                 let apiUrl = pokeApi + name + '/';
                 let getData = (function(){
@@ -116,6 +117,7 @@ $(document).ready(function() {
                     newPokemon = new Pokemon(pokemonName, typesList, height, weight, imgUrl, statsList, abilitiesList); 
                     self.pokeDirectory[pokemonName] = newPokemon;
                     self.pokeDirectory[pokemonName].render();
+                    $("#preloadSpinner").removeClass("active");
                 });
                 
             }
@@ -131,7 +133,9 @@ $(document).ready(function() {
             return this.pokeDirectory[pokemon];
         }
     }
-    
+
+
+
     // creates new pokedex initialized with trainer name Sasha and adds preset Pokemon 
     function main(){
         Sasha = new Trainer("Sasha");

@@ -23,7 +23,6 @@ body {
                 height: 55%;
                 overflow: visible;
                 .carousel-item {
-                    min-width: 30%;
                     .card {
                         @include neonGlow;
                         .card-image {
@@ -34,7 +33,7 @@ body {
                             font-size: 1.1em;
                         }
                         .card-reveal {
-                            font-size: 1.3em;
+                            font-size: 1.1em;
                         }
                     }
                 }
