@@ -25,12 +25,12 @@ $(document).ready(function() {
             $(".carousel").append(newCardA);
             let cardDiv = document.createElement("div");
             $(cardDiv).attr("id", this.name);
-            $(cardDiv).attr("class", "card medium");
+            $(cardDiv).attr("class", "card");
             
             // add image to card
             let imgDiv = document.createElement("div");
             $(imgDiv).attr("class", "card-image");
-            $(imgDiv).append("<img class='responsive-img activator' src='" + this.imgUrl + "' alt='picture of "+ this.name +"' >");
+            $(imgDiv).append("<img class='activator' src='" + this.imgUrl + "' alt='picture of "+ this.name +"' >");
             $(cardDiv).append(imgDiv);
             
             // add character name and info to card

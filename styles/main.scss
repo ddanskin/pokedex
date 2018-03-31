@@ -27,6 +27,8 @@ body {
                         @include neonGlow;
                         .card-image {
                             img {
+                                width: 80%;
+                                height: auto;
                             }
                         }
                         .card-content { 
@@ -36,14 +38,14 @@ body {
                             .card-title {
                                 margin: 0;
                             }
-
-                            ul{
-                                padding: 0;
-                            }
                         }
                         .card-reveal {
                             font-size: 1em;
-                            padding: 5;
+                            table{
+                                td{
+                                    padding: 5px;
+                                }
+                            }
                         }
                     }
                 }
