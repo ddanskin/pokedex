@@ -32,32 +32,37 @@ body {
       body #pokedex .main .carousel {
         height: 55%;
         overflow: visible; }
-        body #pokedex .main .carousel .carousel-item {
-          min-width: 30%; }
-          body #pokedex .main .carousel .carousel-item .card {
-            -webkit-animation-name: neonGlow;
-            -moz-animation-name: neonGlow;
-            -o-animation-name: neonGlow;
-            animation-name: neonGlow;
-            -webkit-animation-duration: 1.5s;
-            -moz-animation-duration: 1.5s;
-            -o-animation-duration: 1.5s;
-            animation-duration: 1.5s;
-            -webkit-animation-timing-function: ease-in-out;
-            -moz-animation-timing-function: ease-in-out;
-            -o-animation-timing-function: ease-in-out;
-            animation-timing-function: ease-in-out;
-            -webkit-animation-iteration-count: infinite;
-            -moz-animation-iteration-count: infinite;
-            -o-animation-iteration-count: infinite;
-            animation-iteration-count: infinite;
-            -webkit-animation-direction: alternate;
-            -moz-animation-direction: alternate;
-            -o-animation-direction: alternate;
-            animation-direction: alternate; }
-            body #pokedex .main .carousel .carousel-item .card .card-content {
-              font-size: 1.1em; }
-            body #pokedex .main .carousel .carousel-item .card .card-reveal {
-              font-size: 1.3em; }
+        body #pokedex .main .carousel .carousel-item .card {
+          -webkit-animation-name: neonGlow;
+          -moz-animation-name: neonGlow;
+          -o-animation-name: neonGlow;
+          animation-name: neonGlow;
+          -webkit-animation-duration: 1.5s;
+          -moz-animation-duration: 1.5s;
+          -o-animation-duration: 1.5s;
+          animation-duration: 1.5s;
+          -webkit-animation-timing-function: ease-in-out;
+          -moz-animation-timing-function: ease-in-out;
+          -o-animation-timing-function: ease-in-out;
+          animation-timing-function: ease-in-out;
+          -webkit-animation-iteration-count: infinite;
+          -moz-animation-iteration-count: infinite;
+          -o-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+          -webkit-animation-direction: alternate;
+          -moz-animation-direction: alternate;
+          -o-animation-direction: alternate;
+          animation-direction: alternate; }
+          body #pokedex .main .carousel .carousel-item .card .card-content {
+            padding-top: 0;
+            padding-bottom: 0;
+            font-size: 1em; }
+            body #pokedex .main .carousel .carousel-item .card .card-content .card-title {
+              margin: 0; }
+            body #pokedex .main .carousel .carousel-item .card .card-content ul {
+              padding: 0; }
+          body #pokedex .main .carousel .carousel-item .card .card-reveal {
+            font-size: 1em;
+            padding: 5; }
 
 /*# sourceMappingURL=main.css.map */

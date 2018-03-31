@@ -35,7 +35,7 @@ $(document).ready(function() {
             
             // add character name and info to card
             let detailsDiv = document.createElement("div");
-            $(detailsDiv).attr("class", "card-content flow-text");
+            $(detailsDiv).attr("class", "card-content");
             $(detailsDiv).append("<span class='card-title activator'>" + this.name + "</span>");
             $(cardDiv).append(detailsDiv);
             let detailsUl = document.createElement("ul");
@@ -43,7 +43,7 @@ $(document).ready(function() {
             $(detailsUl).append("<li>types: " + this.types + "</li>");
             $(detailsUl).append("<li>height: " + this.height + "m</li>");
             $(detailsUl).append("<li>weight: " + this.weight + "kg</li>");
-            $(detailsDiv).append("<p>abilities: " + this.abilities + "</p>");
+            $(detailsUl).append("<li><p>abilities: " + this.abilities + "</p></li>");
             
             // add hidden stats info card that will pop up on card click
             let statsShow = document.createElement("div");
@@ -77,7 +77,7 @@ $(document).ready(function() {
         add(name) {
             let self = this;
             if(!this.pokeDirectory.hasOwnProperty(name)) {
-                $("preloadSpinner").addClass("active");
+                $(".preloader-wrapper").addClass("active");
                 let newPokemon;
                 let apiUrl = pokeApi + name + '/';
                 let getData = (function(){
@@ -117,7 +117,7 @@ $(document).ready(function() {
                     newPokemon = new Pokemon(pokemonName, typesList, height, weight, imgUrl, statsList, abilitiesList); 
                     self.pokeDirectory[pokemonName] = newPokemon;
                     self.pokeDirectory[pokemonName].render();
-                    $("#preloadSpinner").removeClass("active");
+                    $(".preloader-wrapper").removeClass("active");
                 });
                 
             }
@@ -154,3 +154,4 @@ $(document).ready(function() {
     });
 
 });
+
