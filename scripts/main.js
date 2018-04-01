@@ -76,7 +76,7 @@ $(document).ready(function() {
         
         // returns an array of all Pokemon
         all() {
-            console.log(Object.values(this.pokeDirectory));
+            return Object.values(this.pokeDirectory);
         }
 
         // returns requested Pokemon object
