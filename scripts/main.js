@@ -3,7 +3,7 @@ $(document).ready(function() {
     //const pokeApi = "https://pokeapi.salestock.net/api/v2/pokemon/";
     const pokemonNames = ["rockruff", "lillipup", "stufful"];
     let pokedexOn = false;
-    var Sasha;
+    let trainer = "Sasha";
     
     // create new Pokemon object
     class Pokemon {
@@ -75,7 +75,7 @@ $(document).ready(function() {
         
         // returns an array of all Pokemon
         all() {
-            return Object.keys(this.pokeDirectory);
+            console.log(Object.values(this.pokeDirectory));
         }
 
         // returns requested Pokemon object
@@ -141,9 +141,9 @@ $(document).ready(function() {
 
     // creates new pokedex initialized with trainer name Sasha and adds preset Pokemon 
     function main(){
-        Sasha = new Trainer("Sasha");
+        const TRAINER = new Trainer(trainer);
         for (let i = 0; i < pokemonNames.length; i++){
-            Sasha.add(pokemonNames[i]);
+            TRAINER.add(pokemonNames[i]);
         }
     }
 
