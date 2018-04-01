@@ -2,10 +2,10 @@ const pokeApi = "https://pokeapi.co/api/v2/pokemon/";
 //const pokeApi = "https://pokeapi.salestock.net/api/v2/pokemon/";
 const pokemonNames = ["rockruff", "lillipup", "stufful"];
 let pokedexOn = false;
-let newTrainer = "Sasha";
+let newTrainer = "";
 let trainer;
 $(document).ready(function() { 
-    
+    $('.modal').modal();    
     // create new Pokemon object
     class Pokemon {
         constructor(name, types, height, weight, imgUrl, stats, abilities) {
@@ -149,10 +149,11 @@ $(document).ready(function() {
     }
 
     // when button is pressed, main function is called
-    $("#mainButton").click(function(){
+    $("#submitName").click(function(){
         if (!pokedexOn) {
+            newTrainer = $("#userName").val();
             main();
-            $("#mainButton").removeClass("pulse");
+            $("#startButton").removeClass("pulse");
             pokedexOn = true;
         }
     });
