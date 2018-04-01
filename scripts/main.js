@@ -1,9 +1,10 @@
+const pokeApi = "https://pokeapi.co/api/v2/pokemon/";
+//const pokeApi = "https://pokeapi.salestock.net/api/v2/pokemon/";
+const pokemonNames = ["rockruff", "lillipup", "stufful"];
+let pokedexOn = false;
+let newTrainer = "Sasha";
+let trainer;
 $(document).ready(function() { 
-    const pokeApi = "https://pokeapi.co/api/v2/pokemon/";
-    //const pokeApi = "https://pokeapi.salestock.net/api/v2/pokemon/";
-    const pokemonNames = ["rockruff", "lillipup", "stufful"];
-    let pokedexOn = false;
-    let trainer = "Sasha";
     
     // create new Pokemon object
     class Pokemon {
@@ -141,9 +142,9 @@ $(document).ready(function() {
 
     // creates new pokedex initialized with trainer name Sasha and adds preset Pokemon 
     function main(){
-        const TRAINER = new Trainer(trainer);
+        trainer = new Trainer(newTrainer);
         for (let i = 0; i < pokemonNames.length; i++){
-            TRAINER.add(pokemonNames[i]);
+            trainer.add(pokemonNames[i]);
         }
     }
 
