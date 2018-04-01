@@ -26,6 +26,9 @@ body {
   body #pokedex {
     box-shadow: 0 0 10px #333;
     font-family: 'Roboto Mono', monospace; }
+    body #pokedex nav img {
+      height: 150%;
+      width: auto; }
     body #pokedex .main {
       display: block;
       height: 80%;

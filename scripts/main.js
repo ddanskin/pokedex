@@ -70,7 +70,17 @@ $(document).ready(function() {
         constructor(trainerName){
             this.trainerName = trainerName;
             this.pokeDirectory = {};
-            $(".brand-logo").text(trainerName);
+            $("#trainerName").text(trainerName);
+        }
+        
+        // returns an array of all Pokemon
+        all() {
+            return Object.keys(this.pokeDirectory);
+        }
+
+        // returns requested Pokemon object
+        get(pokemon) {
+            return this.pokeDirectory[pokemon];
         }
 
         // add new Pokemon to pokeDirectory and display them on screen
@@ -118,20 +128,13 @@ $(document).ready(function() {
                     self.pokeDirectory[pokemonName] = newPokemon;
                     self.pokeDirectory[pokemonName].render();
                     $(".preloader-wrapper").removeClass("active");
+                    return self.pokeDirectory;
+                }). then(function () {
+                    $("#pokemonCount").text("You've caught: " + Object.keys(self.pokeDirectory).length + " Pokemon!");
                 });
-                
             }
         }
 
-        // returns an array of all Pokemon
-        all() {
-            return Object.keys(this.pokeDirectory);
-        }
-
-        // returns requested Pokemon object
-        get(pokemon) {
-            return this.pokeDirectory[pokemon];
-        }
     }
 
 

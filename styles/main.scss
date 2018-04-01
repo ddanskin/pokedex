@@ -15,6 +15,10 @@ body {
         box-shadow: 0 0 10px #333;
         font-family: 'Roboto Mono', monospace;
         nav {
+            img {
+                height: 150%;
+                width: auto;
+            }
         }
         .main {
             display: block;
