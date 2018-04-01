@@ -30,7 +30,7 @@ $(document).ready(function() {
             // add image to card
             let imgDiv = document.createElement("div");
             $(imgDiv).attr("class", "card-image");
-            $(imgDiv).append("<img class='activator' src='" + this.imgUrl + "' alt='picture of "+ this.name +"' >");
+            $(imgDiv).append("<img class='activator' src='" + this.imgUrl + "' alt='picture of "+ this.name +"' title='click to see fighting stats' >");
             $(cardDiv).append(imgDiv);
             
             // add character name and info to card
