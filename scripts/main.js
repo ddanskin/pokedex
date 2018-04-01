@@ -70,7 +70,7 @@ $(document).ready(function() {
         constructor(trainerName){
             this.trainerName = trainerName;
             this.pokeDirectory = {};
-            $(".brand-logo").text("Trainer: "+ trainerName);
+            $(".brand-logo").text(trainerName);
         }
 
         // add new Pokemon to pokeDirectory and display them on screen

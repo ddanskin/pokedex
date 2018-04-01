@@ -17,6 +17,7 @@ body {
         nav {
         }
         .main {
+            display: block;
             height: 80%;
             overflow: hidden;
             .carousel {
@@ -24,7 +25,6 @@ body {
                 overflow: visible;
                 .carousel-item {
                     .card {
-                        @include neonGlow;
                         .card-image {
                             img {
                                 width: 80%;
@@ -33,7 +33,7 @@ body {
                         }
                         .card-content { 
                             padding-top: 0;
-                            padding-bottom: 0;
+                            padding-bottom: 10;
                             font-size: 1em;
                             .card-title {
                                 margin: 0;
@@ -55,4 +55,8 @@ body {
         }
     }
 }
-
+ .carousel-item.active{
+     .card {
+         @include neonGlow;
+     }
+ }
