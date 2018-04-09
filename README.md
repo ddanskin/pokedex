@@ -1,7 +1,7 @@
 # pokedex
 
 # Project Title 
-Pokedex
+[Pokedex](https://ddanskin.github.io/pokedex/)
 
 # Motivation
 This project is a pokedex that is built using the Pokemon API at www.pokeapi.co. It is built using Object Oriented Programming to allow
@@ -20,4 +20,4 @@ Thanks to:
 www.pokeapi.co for providing the Pokemon data
 
 # License
-MIT copyright ddanskin
+MIT &copy; ddanskin
